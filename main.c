@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
     if(argc > 1 &&
         (strcmp(argv[1], "--version") == 0 ||
          strcmp(argv[1], "-v") == 0)){
-        printf("quecto text editor v0.02\nRepo: https://github.com/kittyteggie/quecto\n");
+        printf("quecto text editor v0.03\nRepo: https://github.com/kittyteggie/quecto\n");
         return 0;
     }
 
@@ -46,10 +46,10 @@ int main(int argc, char *argv[]) {
     printf("\033[H");
 
     printf("\033[30;47m");
-    printf(" quecto text editor v0.02 \n");
+    printf(" quecto text editor v0.03 \n");
     printf("\033[0m\n");
 
-    printf("Type :w on an empty line to save and exit.\n\n");
+    printf("Type :w on an empty line to save and exit or :q to exit without saving\n\n");
 
     while(1){
         if(fgets(line, sizeof(line), stdin) == NULL){
@@ -60,6 +60,14 @@ int main(int argc, char *argv[]) {
         if(strcmp(line, ":w\n") == 0){
             break;
         }
+    // el :q para quitar
+	// TODO: REHACERLO CUANDO SE PUEDAN EDITAR ARCHIVOS EXISTENTES
+        if(strcmp(line, ":q\n") == 0){
+            fclose(file);
+            remove(argv[1]);
+            printf("\033[?1049l");
+            return 0;
+		}
         fputs(line, file);
     }
 
