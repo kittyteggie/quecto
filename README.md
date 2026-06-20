@@ -12,5 +12,4 @@ And then just run it:
   
 # TO-DO
 * Adding an option for reading and editing existing files
-* Adding an option to go to the previous line
 * Make it not look like ed
