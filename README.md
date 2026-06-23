@@ -11,5 +11,10 @@ And then just run it:
 `./quecto file.txt`  
   
 # TO-DO
-* Adding an option for reading and editing existing files
-* Make it not look like ed
+* Add line deletion
+* Add line insertion
+* Display current line contents when using `:f`
+* Warn before quitting unsaved changes
+* Add configurable max line count
+* Improve handling long lines
+* Add help command (`--help` / `-h`)
